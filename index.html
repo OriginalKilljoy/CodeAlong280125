@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code along</title>
+</head>
+<body>
+
+    <div id="app"></div>
+
+
+<script>
+    let weathersandefjord = "sol"
+    let weatherLarvik = "regn"
+    //Finne enkelt vær
+    //Finne enkelt by
+
+        drawPage()
+        function drawPage(){
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div>Velkommen</div>
+            <div onclick ="showWeather('Sandefjord')">Sandefjord</div>
+            <div onclick="showWeather('Larvik')">Larvik</div>
+            <div id="weatherTable"></div>
+            `
+        }
+
+        function showWeather(city){
+            if(city == "Sandefjord"){
+                document.getElementById('weatherTable').innerHTML = /*HTML*/`
+                <div>I sandefjord er det strålende sol</div>`
+            }
+            else if(city == "Larvik"){
+                document.getElementById('weatherTable').innerHTML = /*HTML*/`
+                <div>I Larvik pøser det ned</div>`
+            }
+        }
+
+    //Værmeldingsside
+    // To byer, Sandefjord(sol) og Larvik(regn)
+    // Klike på byene - onclick
+    // Vise været for byen 
+    // En væryype (sol eller regn)
+    // Husk semicolon
+
+</script>
+</body>
+</html>
