@@ -1,49 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code along</title>
+    <style>
+        .weatherApp {
+            border: solid 2px #494949;
+            border-radius: 5px;
+            width: 300px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: #fffdf6;
+            margin: 30px;
+        }
+
+        .title {
+            margin: 20px;
+            font-size: x-large;
+        }
+
+        .placeName {
+            border: 3px outset #494949;
+            border-radius: 5px;
+            margin: 5px;
+            padding: 5px;
+            user-select: none;
+            background-color: #faf6e9;
+            height: 30px;
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition-duration: 0.4s;
+        }
+
+        .placeName:hover{
+            background-color: #ece8d9;
+            box-shadow: 0px 1px 11px rgba(0, 0, 0, 0.3);
+        }
+
+        .weatherInfo {
+            margin: 10px;
+        }
+
+    </style>
 </head>
+
 <body>
 
     <div id="app"></div>
 
-
-<script>
-    let weathersandefjord = "sol"
-    let weatherLarvik = "regn"
-    //Finne enkelt vær
-    //Finne enkelt by
+    <script>
 
         drawPage()
-        function drawPage(){
+        function drawPage() {
             document.getElementById('app').innerHTML = /*HTML*/`
-            <div>Velkommen</div>
-            <div onclick ="showWeather('Sandefjord')">Sandefjord</div>
-            <div onclick="showWeather('Larvik')">Larvik</div>
-            <div id="weatherTable"></div>
-            `
+            <div class="weatherApp">
+                <div class="title">Velkommen til Været</div>
+                <div class="placeName" onclick ="showWeather('Sandefjord', 'strålende sol')">Sandefjord</div>
+                <div class="placeName" onclick="showWeather('Larvik', 'masse regn')">Larvik</div>
+                <div class="weatherInfo" id="weatherInfo"></div>
+            </div>
+            `;
         }
 
-        function showWeather(city){
-            if(city == "Sandefjord"){
-                document.getElementById('weatherTable').innerHTML = /*HTML*/`
-                <div>I sandefjord er det strålende sol</div>`
-            }
-            else if(city == "Larvik"){
-                document.getElementById('weatherTable').innerHTML = /*HTML*/`
-                <div>I Larvik pøser det ned</div>`
-            }
+        function showWeather(city, weatherType) {
+            document.getElementById('weatherInfo').innerHTML = /*HTML*/`
+            <div>I ${city} er det ${weatherType}</div>
+        `;
         }
 
-    //Værmeldingsside
-    // To byer, Sandefjord(sol) og Larvik(regn)
-    // Klike på byene - onclick
-    // Vise været for byen 
-    // En væryype (sol eller regn)
-    // Husk semicolon
+        //Værmeldingsside
+        // To byer, Sandefjord(sol) og Larvik(regn)
+        // Klike på byene - onclick
+        // Vise været for byen
+        // En væryype (sol eller regn)
+        // Husk semicolon
 
-</script>
+    </script>
 </body>
+
 </html>
